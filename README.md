@@ -7,19 +7,9 @@ consultas médicas/profissionais. Projeto da disciplina **Desenvolvimento Web Ba
 
 | Nome | Matrícula |
 |------|-----------|
-| _(preencher em ordem alfabética)_ | |
+| Brunno Gaiba Bresaola Barbosa | 202531291 |
 | | |
-| | |
-| | |
-
-## Vídeo demonstrativo
-
-> **OBRIGATÓRIO:** substituir pelo link real (Loom / YouTube / similar) mostrando
-> cadastro de usuário, login e registro de consulta funcionando.
-
-🎥 **Link do vídeo:** _(colar aqui)_
-
----
+| João Eduardo Pinto | 202529771 |
 
 ## Tecnologias
 
