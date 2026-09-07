@@ -1,0 +1,34 @@
+@model RedefinirSenhaViewModel
+@{
+    ViewData["Title"] = "Nova senha";
+}
+
+<div class="panel">
+    <h1>Definir nova senha</h1>
+    <p class="muted" style="margin-top:-12px;margin-bottom:24px;font-size:14px;">
+        Cadastro confirmado para <strong>@Model.Email</strong>.
+    </p>
+
+    <form asp-action="RedefinirSenha" method="post">
+        <div asp-validation-summary="ModelOnly" class="validation-summary-errors"></div>
+        <input type="hidden" asp-for="Token" />
+        <input type="hidden" asp-for="Email" />
+
+        <div class="field">
+            <label asp-for="NovaSenha"></label>
+            <input asp-for="NovaSenha" autocomplete="new-password" />
+            <span asp-validation-for="NovaSenha" class="form-error"></span>
+        </div>
+        <div class="field">
+            <label asp-for="ConfirmarNovaSenha"></label>
+            <input asp-for="ConfirmarNovaSenha" autocomplete="new-password" />
+            <span asp-validation-for="ConfirmarNovaSenha" class="form-error"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Redefinir senha</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

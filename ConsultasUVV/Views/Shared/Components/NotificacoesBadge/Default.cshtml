@@ -1,0 +1,10 @@
+@model int
+
+<a class="nav-bell" asp-controller="Notificacoes" asp-action="Index" title="Notificações">
+    <span aria-hidden="true">&#128276;</span>
+    <span class="nav-bell-label">Notificações</span>
+    @if (Model > 0)
+    {
+        <span class="nav-bell-count">@(Model > 9 ? "9+" : Model.ToString())</span>
+    }
+</a>

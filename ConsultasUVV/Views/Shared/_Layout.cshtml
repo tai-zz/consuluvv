@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] · Consultas UVV</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="nav-inner">
+            <a class="brand" asp-controller="Home" asp-action="Index">Consultas UVV</a>
+            <nav>
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <a class="nav-link" asp-controller="Consultas" asp-action="Index">Minhas consultas</a>
+                }
+            </nav>
+            <span class="spacer"></span>
+            <nav>
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <vc:notificacoes-badge />
+                    <span class="nav-user">@User.Identity!.Name</span>
+                    <form asp-controller="Conta" asp-action="Logout" method="post">
+                        <button type="submit" class="linkbutton">Sair</button>
+                    </form>
+                }
+                else
+                {
+                    <a class="nav-link" asp-controller="Conta" asp-action="Login">Entrar</a>
+                    <a class="nav-link" asp-controller="Conta" asp-action="Registrar">Criar conta</a>
+                }
+            </nav>
+        </div>
+    </header>
+
+    @if (TempData["Sucesso"] is not null)
+    {
+        <div class="flash">
+            <div class="flash-inner">@TempData["Sucesso"]</div>
+        </div>
+    }
+
+    <main class="page">
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        &copy; @DateTime.Now.Year — Gestão de Consultas UVV · Desenvolvimento Web Back-end
+    </footer>
+
+    <script>
+        document.querySelectorAll('input[data-mask="cpf"]').forEach(function (el) {
+            el.addEventListener('input', function () {
+                var d = el.value.replace(/\D/g, '').slice(0, 11);
+                var v = d;
+                if (d.length > 9) v = d.slice(0, 3) + '.' + d.slice(3, 6) + '.' + d.slice(6, 9) + '-' + d.slice(9);
+                else if (d.length > 6) v = d.slice(0, 3) + '.' + d.slice(3, 6) + '.' + d.slice(6);
+                else if (d.length > 3) v = d.slice(0, 3) + '.' + d.slice(3);
+                el.value = v;
+            });
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

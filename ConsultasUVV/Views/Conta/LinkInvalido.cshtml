@@ -1,0 +1,15 @@
+@{
+    ViewData["Title"] = "Link inválido";
+}
+
+<div class="panel">
+    <h1>Link inválido ou expirado</h1>
+    <p class="muted">
+        O link para redefinir a senha não é mais válido. Ele expira em 30 minutos
+        e só pode ser usado uma vez. Comece o processo novamente.
+    </p>
+    <div class="actions actions--center">
+        <a asp-action="EsqueciSenha" class="btn btn-primary">Recuperar senha</a>
+        <a asp-action="Login" class="btn btn-plain">Voltar ao login</a>
+    </div>
+</div>

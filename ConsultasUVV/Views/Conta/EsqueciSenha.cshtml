@@ -1,0 +1,36 @@
+@model EsqueciSenhaViewModel
+@{
+    ViewData["Title"] = "Recuperar senha";
+}
+
+<div class="panel">
+    <h1>Recuperar senha</h1>
+    <p class="muted" style="margin-top:-12px;margin-bottom:24px;font-size:14px;">
+        Informe o e-mail e o CPF usados no cadastro para redefinir sua senha.
+    </p>
+
+    <form asp-action="EsqueciSenha" method="post">
+        <div asp-validation-summary="ModelOnly" class="validation-summary-errors"></div>
+
+        <div class="field">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" autocomplete="email" />
+            <span asp-validation-for="Email" class="form-error"></span>
+        </div>
+        <div class="field">
+            <label asp-for="Cpf"></label>
+            <input asp-for="Cpf" data-mask="cpf" inputmode="numeric" maxlength="14"
+                   placeholder="000.000.000-00" autocomplete="off" />
+            <span asp-validation-for="Cpf" class="form-error"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Continuar</button>
+        <div class="actions actions--center">
+            <a asp-action="Login" class="btn btn-plain">Voltar ao login</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

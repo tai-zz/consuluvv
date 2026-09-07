@@ -1,0 +1,32 @@
+@model Consulta
+@{
+    ViewData["Title"] = "Excluir Consulta";
+}
+
+<div class="panel panel--wide">
+    <h1>Excluir consulta</h1>
+    <p class="muted">Esta ação não pode ser desfeita.</p>
+
+    <dl class="spec-list">
+        <div>
+            <dt>@Html.DisplayNameFor(m => m.Especialidade)</dt>
+            <dd>@Model.Especialidade</dd>
+        </div>
+        <div>
+            <dt>@Html.DisplayNameFor(m => m.DataHora)</dt>
+            <dd>@Model.DataHora.ToString("dd/MM/yyyy 'às' HH:mm")</dd>
+        </div>
+        <div>
+            <dt>@Html.DisplayNameFor(m => m.Descricao)</dt>
+            <dd>@Model.Descricao</dd>
+        </div>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="actions">
+            <button type="submit" class="btn btn-danger">Excluir consulta</button>
+            <a asp-action="Index" class="btn btn-plain">Cancelar</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,48 @@
+@model RegistroViewModel
+@{
+    ViewData["Title"] = "Criar conta";
+}
+
+<div class="panel">
+    <h1>Criar conta</h1>
+
+    <form asp-action="Registrar" method="post">
+        <div asp-validation-summary="ModelOnly" class="validation-summary-errors"></div>
+
+        <div class="field">
+            <label asp-for="Nome"></label>
+            <input asp-for="Nome" autocomplete="name" />
+            <span asp-validation-for="Nome" class="form-error"></span>
+        </div>
+        <div class="field">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" autocomplete="email" />
+            <span asp-validation-for="Email" class="form-error"></span>
+        </div>
+        <div class="field">
+            <label asp-for="Cpf"></label>
+            <input asp-for="Cpf" data-mask="cpf" inputmode="numeric" maxlength="14"
+                   placeholder="000.000.000-00" autocomplete="off" />
+            <span asp-validation-for="Cpf" class="form-error"></span>
+        </div>
+        <div class="field">
+            <label asp-for="Senha"></label>
+            <input asp-for="Senha" autocomplete="new-password" />
+            <span asp-validation-for="Senha" class="form-error"></span>
+        </div>
+        <div class="field">
+            <label asp-for="ConfirmarSenha"></label>
+            <input asp-for="ConfirmarSenha" autocomplete="new-password" />
+            <span asp-validation-for="ConfirmarSenha" class="form-error"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+        <div class="actions actions--center">
+            <a asp-action="Login" class="btn btn-plain">Já tenho conta</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

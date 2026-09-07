@@ -1,0 +1,10 @@
+# Normaliza fins de linha: evita os avisos "LF will be replaced by CRLF".
+* text=auto eol=lf
+
+*.sln       text eol=crlf
+*.csproj    text eol=crlf
+*.cs        text
+*.cshtml    text
+*.css       text
+*.json      text
+*.md        text

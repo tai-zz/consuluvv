@@ -1,0 +1,37 @@
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Entrar";
+}
+
+<div class="panel">
+    <h1>Entrar</h1>
+
+    <form asp-action="Login" method="post" asp-route-returnUrl="@ViewData["ReturnUrl"]">
+        <div asp-validation-summary="ModelOnly" class="validation-summary-errors"></div>
+
+        <div class="field">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" autocomplete="email" />
+            <span asp-validation-for="Email" class="form-error"></span>
+        </div>
+        <div class="field">
+            <label asp-for="Senha"></label>
+            <input asp-for="Senha" autocomplete="current-password" />
+            <span asp-validation-for="Senha" class="form-error"></span>
+        </div>
+        <label class="checkbox">
+            <input asp-for="LembrarDeMim" />
+            <span>Manter-me conectado</span>
+        </label>
+
+        <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+        <div class="actions actions--center">
+            <a asp-action="Registrar" class="btn btn-plain">Criar uma conta</a>
+            <a asp-action="EsqueciSenha" class="btn btn-plain">Esqueci minha senha</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

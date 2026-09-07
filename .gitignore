@@ -1,0 +1,28 @@
+## .NET / Visual Studio
+bin/
+obj/
+out/
+*.user
+*.suo
+.vs/
+.vscode/
+
+## Rider
+.idea/
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+
+## Banco local (LocalDB) e arquivos temporários
+*.mdf
+*.ldf
+*.db
+
+## Segredos de usuário
+secrets.json
+appsettings.*.Local.json

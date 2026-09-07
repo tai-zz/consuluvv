@@ -1,0 +1,43 @@
+@model IEnumerable<Notificacao>
+@{
+    ViewData["Title"] = "Notificações";
+    var temNaoLida = Model.Any(n => !n.Lida);
+}
+
+<div class="page-head">
+    <h1>Notificações</h1>
+    @if (temNaoLida)
+    {
+        <form asp-action="MarcarTodasComoLidas" method="post">
+            <button type="submit" class="btn btn-ghost btn-sm">Marcar todas como lidas</button>
+        </form>
+    }
+</div>
+
+@if (!Model.Any())
+{
+    <div class="empty">
+        <p>Você não tem notificações.</p>
+        <p class="muted" style="font-size:13px;">
+            Avisos sobre consultas próximas aparecem aqui automaticamente, um dia antes da data marcada.
+        </p>
+    </div>
+}
+else
+{
+    <div class="card-list">
+        @foreach (var n in Model)
+        {
+            <article class="notif-card @(n.Lida ? "" : "notif-card--nova")">
+                <span class="notif-dot" aria-hidden="true"></span>
+                <div class="info">
+                    <div class="notif-msg">@n.Mensagem</div>
+                    <div class="quando">@n.CriadaEm.ToString("dd/MM/yyyy 'às' HH:mm")</div>
+                </div>
+                <form asp-action="Excluir" asp-route-id="@n.Id" method="post">
+                    <button type="submit" class="btn btn-plain btn-sm">Remover</button>
+                </form>
+            </article>
+        }
+    </div>
+}

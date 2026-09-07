@@ -1,0 +1,38 @@
+@model Consulta
+@{
+    ViewData["Title"] = "Editar Consulta";
+}
+
+<div class="panel panel--wide">
+    <h1>Editar consulta</h1>
+
+    <form asp-action="Edit" method="post">
+        <div asp-validation-summary="ModelOnly" class="validation-summary-errors"></div>
+        <input type="hidden" asp-for="Id" />
+
+        <div class="field">
+            <label asp-for="Especialidade"></label>
+            <input asp-for="Especialidade" />
+            <span asp-validation-for="Especialidade" class="form-error"></span>
+        </div>
+        <div class="field">
+            <label asp-for="DataHora"></label>
+            <input asp-for="DataHora" type="datetime-local" />
+            <span asp-validation-for="DataHora" class="form-error"></span>
+        </div>
+        <div class="field">
+            <label asp-for="Descricao"></label>
+            <textarea asp-for="Descricao" rows="3"></textarea>
+            <span asp-validation-for="Descricao" class="form-error"></span>
+        </div>
+
+        <div class="actions">
+            <button type="submit" class="btn btn-primary">Salvar alterações</button>
+            <a asp-action="Index" class="btn btn-plain">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
