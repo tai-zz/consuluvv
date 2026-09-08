@@ -6,9 +6,8 @@ consultas médicas/profissionais. Projeto da disciplina **Desenvolvimento Web Ba
 ## Integrantes do grupo
 
 | Nome | Matrícula |
-|------|-----------|
 | Brunno Gaiba Bresaola Barbosa | 202531291 |
-| | |
+| Iuri Gravel do Nascimento | 202530765 |
 | João Eduardo Pinto | 202529771 |
 
 ## Tecnologias
