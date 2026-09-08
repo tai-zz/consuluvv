@@ -11,6 +11,11 @@ consultas médicas/profissionais. Projeto da disciplina **Desenvolvimento Web Ba
 | Iuri Gravel do Nascimento | 202530765 |
 | João Eduardo Pinto | 202529771 |
 
+
+# Vídeo do sistema
+
+youtube.com/watch?v=zKUt518_Dyo&feature=youtu.be
+
 ## Tecnologias
 
 - ASP.NET Core 8 — MVC (Controllers + Views Razor) + View Component
